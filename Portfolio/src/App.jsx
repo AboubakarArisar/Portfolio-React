@@ -2,7 +2,7 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ImGithub } from "react-icons/im";
 import { FaFileDownload } from "react-icons/fa";
 
@@ -19,7 +19,7 @@ export function Navbar() {
           </div>
           <div className="links flex justify-center items-center gap-7 px-6 text-xl font-semibold">
             <Link className="link px-3 py-2" to="/">Home</Link>
-            <Link className="link px-3 py-2" to="/portfolio">Portfolio</Link>
+            <Link className="link px-3 py-2" to="/about">About</Link>
             <Link className="link px-3 py-2" to="/skills">Skills</Link>
             <Link className="link px-3 py-2" to="/projects">Projects</Link>
             <Link className="link px-3 py-2" to="/contact">Contact</Link>
@@ -29,7 +29,12 @@ export function Navbar() {
     </>
   );
 }
+
 function App() {
+const navigate = useNavigate();
+  function goGithub() {
+    window.open('https://github.com/AboubakarArisar', '_blank');   
+  }
   return (
     <>
       <div className="home-container flex h-[80vh] grid lg:grid-cols-2 xsm:grid-cols-1 gap-2 p-[20px]">
@@ -42,7 +47,7 @@ function App() {
             I specialize in building robust and scalable applications as a MERN Stack Developer. With a passion for turning ideas into reality, I leverage the power of MongoDB, Express.js, React.js, and Node.js to create seamless and efficient web solutions.
           </p>
           <div className="buttons flex gap-3">
-            <button className='p-3 rounded bg-[#E5BA73] hover:bg-[#C58940] flex gap-2 items-center'>
+            <button onClick={goGithub} className='p-3 rounded bg-[#E5BA73] hover:bg-[#C58940] flex gap-2 items-center'>
               <ImGithub /> Explore GitHub
             </button>
             <button className='p-3 rounded bg-[#E5BA73] hover:bg-[#C58940] flex gap-2 items-center'>
